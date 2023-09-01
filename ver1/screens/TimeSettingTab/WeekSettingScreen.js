@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Button } from "react-native"
+import { View, ScrollView, SafeAreaView, Text, TouchableOpacity, StyleSheet, Button } from "react-native"
 
 import WeekSetting from "../../components/WeekSetting"
 
@@ -140,20 +140,18 @@ const infomation = {
 
 export default function WeekSettingScreen({ navigation }){
     return(
-        <View style={styles.container}>
-            <WeekSetting props={infomation.sunday} onPress={() => navigation.navigate("DaySettingScreen", infomation.sunday)}/>
-            <WeekSetting props={infomation.monday} onPress={() => navigation.navigate("DaySettingScreen", infomation.monday)}/>
-            <WeekSetting props={infomation.tuesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.tuesday)}/>
-            <WeekSetting props={infomation.wednesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.wednesday)}/>
-            <WeekSetting props={infomation.thursday} onPress={() => navigation.navigate("DaySettingScreen", infomation.thursday)}/>
-            <WeekSetting props={infomation.friday} onPress={() => navigation.navigate("DaySettingScreen", infomation.friday)}/>
-            <WeekSetting props={infomation.saturday} onPress={() => navigation.navigate("DaySettingScreen", infomation.saturday)}/>
-        </View>
+        <SafeAreaView>
+            <ScrollView>
+                <WeekSetting props={infomation.sunday} onPress={() => navigation.navigate("DaySettingScreen", infomation.sunday)}/>
+                <WeekSetting props={infomation.monday} onPress={() => navigation.navigate("DaySettingScreen", infomation.monday)}/>
+                <WeekSetting props={infomation.tuesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.tuesday)}/>
+                <WeekSetting props={infomation.wednesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.wednesday)}/>
+                <WeekSetting props={infomation.thursday} onPress={() => navigation.navigate("DaySettingScreen", infomation.thursday)}/>
+                <WeekSetting props={infomation.friday} onPress={() => navigation.navigate("DaySettingScreen", infomation.friday)}/>
+                <WeekSetting props={infomation.saturday} onPress={() => navigation.navigate("DaySettingScreen", infomation.saturday)}/>
+            </ScrollView>
+        </SafeAreaView>
+
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#fff"
-    }
-})

@@ -9,3 +9,4 @@ yarn add expo install expo-linking
 yarn add @react-navigation/bottom-tabs
 yarn add @react-navigation/material-top-tabs react-native-tab-view
 yarn add expo install react-native-pager-view
+yarn add react-native-orientation-locker
