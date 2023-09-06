@@ -1,4 +1,5 @@
-import { View, Text } from "react-native"
+import { View, Text, StyleSheet, Dimensions } from "react-native"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
 import MedicationStatus from "../components/MedicationStatus"
 
@@ -56,7 +57,7 @@ const infomation = {
 
 export default function MedicationStatusTabScreen(){
     return(
-        <View>
+        <View style={style.container}>
             <Text>日 月 火 水 木 金 土</Text>
             <MedicationStatus props={infomation.sunday}/>
             <MedicationStatus props={infomation.monday}/>
@@ -68,3 +69,24 @@ export default function MedicationStatusTabScreen(){
         </View>
     )
 }
+
+const widthSizeRate = () => {
+    const {width, height} = Dimensions.get("screen")
+    let rate
+    if(width > 700) {
+        rate = 0.5
+    } else {
+        rate = 1
+    }
+    return rate
+}
+
+const style = StyleSheet.create({
+    container: {
+        marginTop: "5%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: wp("90%"),
+        backgroundColor: "white",
+    }
+})

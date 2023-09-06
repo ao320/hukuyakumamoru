@@ -1,4 +1,5 @@
-import { Text, TouchableOpacity, StyleSheet } from "react-native"
+import { Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 export default function DaySetting({ props, onPress }) {
 
     return(
@@ -13,9 +14,20 @@ export default function DaySetting({ props, onPress }) {
     )
 }
 
+const widthSizeRate = () => {
+    const {width, height} = Dimensions.get("screen")
+    let rate
+    if(width > 700) {
+        rate = 0.5
+    } else {
+        rate = 1
+    }
+    return rate
+}
+
 const style = StyleSheet.create({
     container: {
-        width: 400,
+        width: wp("90%") * widthSizeRate(),
         height: 100,
         backgroundColor : "white",
         marginTop: 20,
@@ -24,17 +36,15 @@ const style = StyleSheet.create({
         borderRadius: 10,
         flexDirection: "row",
         justifyContent: "center",
-        textAlign: "center",
+        alignItems: "center",
     },
     aboutTime: {
         fontWeight: "500",
         fontSize: 50,
-        lineHeight:100,
         marginRight:30
     },
     time: {
         fontWeight: "500",
         fontSize: 30,
-        lineHeight:100
     }
 })

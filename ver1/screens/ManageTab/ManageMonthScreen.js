@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native"
-import {Calendar} from "react-native-calendars"
+import { Calendar } from "react-native-calendars"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
+
 
 const infomation = [
     {
@@ -65,27 +67,9 @@ const createDates = (data) => {
     return markedDates
 }
 
-let { height, width } = Dimensions.get("screen")
-
-const handleLayout = () => {
-    height = Dimensions.get("window").height
-    width = Dimensions.get("window").width
-    console.log(Dimensions.get("window").height)
-    style = StyleSheet.create({
-        container: {
-            width: width - 100,
-            height: height - 450,
-            marginLeft: "auto",
-            marginRight: "auto",
-            marginTop: 20,
-            borderRadius: 15
-        }
-    })
-}
-
 export default function ManageMonthScreen(){
     return(
-        <View onLayout={handleLayout}>
+        <View>
             <Calendar
                 style={style.container}
                 monthFormat={'yyyy年 M月'}
@@ -96,10 +80,10 @@ export default function ManageMonthScreen(){
     )
 }
 
-let style = StyleSheet.create({
+const style = StyleSheet.create({
     container: {
-        width: width - 100,
-        height: height - 450,
+        width: wp("90%"),
+        height: 450,
         marginLeft: "auto",
         marginRight: "auto",
         marginTop: 20,

@@ -1,38 +1,56 @@
-import { View, Text, StyleSheet } from "react-native"
+import { View, Text, StyleSheet, Dimensions } from "react-native"
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
 export default function ManageToday({props}) {
     const { isCupComplete, isImageComplete, name } = props
     return(
         <View style={style.container}>
-            <Text style={style.day}>
-                {name}
-            </Text>
+            <View style={style.day}>
+                <Text style={style.dayText}>
+                    {name}
+                </Text>
+            </View>
             {isCupComplete ? (
                 isImageComplete ? (
-                    <Text style={style.textComplete}>完了</Text>
+                    <View style={style.box}>
+                        <Text style={style.textComplete}>完了</Text>
+                    </View>
                 ) : (
-                    <>
+                    <View style={style.box}>
                         <Text style={style.text}>画像認識未</Text>
                         <Text style={style.textCupComplete}>コップ済</Text>
-                    </>
+                    </View>
                 )
             ) : (
                 isImageComplete ? (
-                    <>
+                    <View style={style.box}>
                         <Text style={style.textImageComplete}>画像認識済</Text>
                         <Text style={style.text}>コップ未</Text>
-                    </>
+                    </View>
                 ) : (
-                    <Text style={style.text}>未完了</Text>
+                    <View style={style.box}>
+                        <Text style={style.textNotComplete}>未完了</Text>
+                    </View>
                 )
             )}
         </View>
     )
 }
 
+const widthSizeRate = () => {
+    const {width, height} = Dimensions.get("screen")
+    let rate
+    if(width > 700) {
+        rate = 0.5
+    } else {
+        rate = 1
+    }
+    return rate
+}
+
 const style = StyleSheet.create({
     container: {
-        width: 400,
+        width: wp("90%") * widthSizeRate(),
         height: 100,
         backgroundColor : "white",
         marginTop: 20,
@@ -40,14 +58,22 @@ const style = StyleSheet.create({
         marginRight: "auto",
         borderRadius: 10,
         flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: "space-around",
+        alignItems: "center",
     },
     day: {
-        position: "absolute",
-        left: 30,
+        flex:1,
+        alignItems: "center",
+    },
+    dayText: {
         fontWeight: "600",
         fontSize: 50
+    },
+    box: {
+        flex:5,
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-around",
     },
     textComplete: {
         color: "red",
@@ -65,8 +91,13 @@ const style = StyleSheet.create({
         fontSize: 30
     },
     text: {
+        alignItems: "center",
         fontWeight: "300",
         fontSize: 20
-    }
+    },
+    textNotComplete: {
+        fontWeight: "300",
+        fontSize: 20
+    },
 
 })
