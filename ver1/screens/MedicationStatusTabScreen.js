@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions } from "react-native"
+import { View, Text, StyleSheet, Dimensions, ScrollView, SafeAreaView } from "react-native"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
 import MedicationStatus from "../components/MedicationStatus"
@@ -57,16 +57,26 @@ const infomation = {
 
 export default function MedicationStatusTabScreen(){
     return(
-        <View style={style.container}>
-            <Text>日 月 火 水 木 金 土</Text>
-            <MedicationStatus props={infomation.sunday}/>
-            <MedicationStatus props={infomation.monday}/>
-            <MedicationStatus props={infomation.tuesday}/>
-            <MedicationStatus props={infomation.wednesday}/>
-            <MedicationStatus props={infomation.thursday}/>
-            <MedicationStatus props={infomation.friday}/>
-            <MedicationStatus props={infomation.saturday}/>
-        </View>
+        <SafeAreaView>
+            <ScrollView>
+                <View style={style.container}>
+                    <View style={style.wrapTimes}>
+                        <Text style={style.textTime}> </Text>
+                        <Text style={style.textTime}>朝</Text>
+                        <Text style={style.textTime}>昼</Text>
+                        <Text style={style.textTime}>夕</Text>
+                        <Text style={style.textTime}>夜</Text>
+                    </View>
+                    <MedicationStatus props={infomation.sunday}/>
+                    <MedicationStatus props={infomation.monday}/>
+                    <MedicationStatus props={infomation.tuesday}/>
+                    <MedicationStatus props={infomation.wednesday}/>
+                    <MedicationStatus props={infomation.thursday}/>
+                    <MedicationStatus props={infomation.friday}/>
+                    <MedicationStatus props={infomation.saturday}/>
+                </View>
+            </ScrollView>
+        </SafeAreaView>
     )
 }
 
@@ -87,6 +97,19 @@ const style = StyleSheet.create({
         marginLeft: "auto",
         marginRight: "auto",
         width: wp("90%"),
-        backgroundColor: "white",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    textTime: {
+        margin: 5,
+        fontSize: wp("8%"),
+        width : wp("15%"),
+        height : wp("15%"),
+        fontWeight: "600",
+        textAlign: "center",
+
+    },
+    wrapTimes: {
+        flexDirection: "row",
     }
 })
