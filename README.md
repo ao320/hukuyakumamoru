@@ -1,13 +1,14 @@
-# hukuyakumamoru
-yarn add expo install expo-splash-screen
-yarn add expo install expo-font
-yarn add expo install react-native-safe-area-context
-yarn add @react-navigation/stack
-yarn add expo install react-native-gesture-handler
-yarn add @react-navigation/native
-yarn add expo install expo-linking
-yarn add @react-navigation/bottom-tabs
-yarn add @react-navigation/material-top-tabs react-native-tab-view
-yarn add expo install react-native-pager-view
-yarn add react-native-orientation-locker
-yarn add react-native-calenders
+# 服薬守る君
+
+ **服薬守る君**は、認知症高齢者の薬の飲み忘れを防ぐ手助けをするシステムのことです。
+ スマートフォンのアプリで薬を飲む時間の設定、薬を飲んだかの確認、薬の在庫状況などを把握することができます。
+
+
+## ディレクトリ構成
+
+ - Expo-app : React Native, Expoを使ったネイティブアプリケーションのフォルダです。
+ - Node-server : Node.jsを使ったバックエンドAPIのフォルダです。
+ - etc...
+
+
+
