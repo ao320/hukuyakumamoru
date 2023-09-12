@@ -1,6 +1,6 @@
 import express from "express"
-import ManageMonthModel from "../models/ManageMonthRoutes.mjs"
-import ManageTodayModel from "../models/ManageTodayRoutes.mjs"
+import ManageMonthModel from "../models/ManageMonth.mjs"
+import ManageTodayModel from "../models/ManageToday.mjs"
 
 const router = express.Router()
 

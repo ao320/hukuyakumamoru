@@ -2,60 +2,60 @@ import { View, Text, StyleSheet, Dimensions, ScrollView, SafeAreaView } from "re
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
 import MedicationStatus from "../components/MedicationStatus"
-
-const infomation = {
-    "sunday" : {
-        "day" : "日",
-        "morning" : false,
-        "afternoon" : false,
-        "evening" : false,
-        "night" : false,
-    },
-    "monday" : {
-        "day" : "月",
-        "morning" : false,
-        "afternoon" : false,
-        "evening" : false,
-        "night" : false,
-    },
-    "tuesday" : {
-        "day" : "火",
-        "morning" : false,
-        "afternoon" : false,
-        "evening" : true,
-        "night" : true,
-    },
-    "wednesday" : {
-        "day" : "水",
-        "morning" : true,
-        "afternoon" : true,
-        "evening" : true,
-        "night" : true,
-    },
-    "thursday" : {
-        "day" : "木",
-        "morning" : true,
-        "afternoon" : true,
-        "evening" : true,
-        "night" : true,
-    },
-    "friday" : {
-        "day" : "金",
-        "morning" : true,
-        "afternoon" : true,
-        "evening" : true,
-        "night" : true,
-    },
-    "saturday" : {
-        "day" : "土",
-        "morning" : true,
-        "afternoon" : true,
-        "evening" : true,
-        "night" : true,
-    },
-}
+import { useState } from "react"
 
 export default function MedicationStatusTabScreen(){
+    const [infomation, setInfomation] = useState({
+        "sunday" : {
+            "day" : "日",
+            "morning" : false,
+            "afternoon" : false,
+            "evening" : false,
+            "night" : false,
+        },
+        "monday" : {
+            "day" : "月",
+            "morning" : false,
+            "afternoon" : false,
+            "evening" : false,
+            "night" : false,
+        },
+        "tuesday" : {
+            "day" : "火",
+            "morning" : false,
+            "afternoon" : false,
+            "evening" : true,
+            "night" : true,
+        },
+        "wednesday" : {
+            "day" : "水",
+            "morning" : true,
+            "afternoon" : true,
+            "evening" : true,
+            "night" : true,
+        },
+        "thursday" : {
+            "day" : "木",
+            "morning" : true,
+            "afternoon" : true,
+            "evening" : true,
+            "night" : true,
+        },
+        "friday" : {
+            "day" : "金",
+            "morning" : true,
+            "afternoon" : true,
+            "evening" : true,
+            "night" : true,
+        },
+        "saturday" : {
+            "day" : "土",
+            "morning" : true,
+            "afternoon" : true,
+            "evening" : true,
+            "night" : false,
+        },
+    })
     return(
         <SafeAreaView>
             <ScrollView>

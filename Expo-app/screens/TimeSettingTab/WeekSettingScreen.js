@@ -1,5 +1,4 @@
 import { View, ScrollView, SafeAreaView, Text, TouchableOpacity, StyleSheet, Button } from "react-native"
-import Realm from "realm"
 
 import WeekSetting from "../../components/WeekSetting"
 
