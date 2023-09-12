@@ -4,6 +4,9 @@ import TimeSetting from "./routes/TimeSettingRoutes.mjs"
 import MedicationStatus from "./routes/MedicationStatusRoutes.mjs"
 import mongoose from "mongoose"
 import cors from "cors"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
 
@@ -13,10 +16,10 @@ app.use("/manage", Manage)
 app.use("/timeSetting", TimeSetting)
 app.use("/medicationStatus", MedicationStatus)
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     console.log("サーバーが起動しました")
 })
 
-mongoose.connect("mongodb://160.16.222.38:27017")
+mongoose.connect(process.env.URI)
 .then(() => console.log("データベースに接続しました"))
 .catch((err) => console.log(err))
