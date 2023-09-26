@@ -1,4 +1,4 @@
-#参考リンク
+参考リンク
 mongo db for python
 ¥n
 https://python-work.com/pymongo/
