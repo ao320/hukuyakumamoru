@@ -1,9 +1,10 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native"
 import { Calendar } from "react-native-calendars"
+import { useState } from "react"
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
-
-const infomation = [
+export default function ManageMonthScreen(){
+    const [infomation, setInfomation] = useState([
     {
         "date": "2023-09-01",
         "completedNumber" : 1
@@ -31,43 +32,49 @@ const infomation = [
     {
         "date": "2023-09-07",
         "completedNumber" : 1
-    },
-]
-
-const createDates = (data) => {
-    const markedDates = {}
-    data.forEach(value => {
-        let backgroundColor
-        switch (value.completedNumber) {
-            case 1:
-                backgroundColor = "#E0B89C"
-                break
-            case 2:
-                backgroundColor = "#F69C5B"
-                break
-            case 3:
-                backgroundColor = "#FF8A36"
-                break
-            case 4:
-                backgroundColor = "#FF6A00"
-                break
-        }
-        markedDates[value.date] = {
-            customStyles : {
-                container : {
-                    backgroundColor : backgroundColor
-                },
-                text : {
-                    color : "black",
-                    fontWeight: "bold"
+    }])
+    const getData = async () => {
+        const res = await fetch("http://160.16.222.38/manage/month")
+        const jsonData = await res.json()
+        return jsonData
+    }
+    getData().then((e) => {
+        setInfomation(e)
+    }).catch((err) => {
+        console.log(err)
+    })
+    const createDates = (data) => {
+        const markedDates = {}
+        data.forEach(value => {
+            let backgroundColor
+            switch (value.completedNumber) {
+                case 1:
+                    backgroundColor = "#E0B89C"
+                    break
+                case 2:
+                    backgroundColor = "#F69C5B"
+                    break
+                case 3:
+                    backgroundColor = "#FF8A36"
+                    break
+                case 4:
+                    backgroundColor = "#FF6A00"
+                    break
+            }
+            markedDates[value.date] = {
+                customStyles : {
+                    container : {
+                        backgroundColor : backgroundColor
+                    },
+                    text : {
+                        color : "black",
+                        fontWeight: "bold"
+                    }
                 }
             }
-        }
-    })
-    return markedDates
-}
-
-export default function ManageMonthScreen(){
+        })
+        return markedDates
+    }
     return(
         <View>
             <Calendar

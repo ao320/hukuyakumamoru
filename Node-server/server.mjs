@@ -20,6 +20,6 @@ app.listen(process.env.PORT, () => {
     console.log("サーバーが起動しました")
 })
 
-mongoose.connect(process.env.URI)
+mongoose.connect("mongodb://160.16.222.38:27017")
 .then(() => console.log("データベースに接続しました"))
 .catch((err) => console.log(err))
