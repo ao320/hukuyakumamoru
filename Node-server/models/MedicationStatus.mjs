@@ -52,5 +52,5 @@ const MedicationStatusSchema = new mongoose.Schema({
     }
 })
 
-const MedicationStatusModel = mongoose.model("MedicationStatusModel", MedicationStatusSchema)
+const MedicationStatusModel = mongoose.model("isputmedicine", MedicationStatusSchema)
 export default MedicationStatusModel

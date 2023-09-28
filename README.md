@@ -8,7 +8,8 @@
 
  - Expo-app : React Native, Expoを使ったネイティブアプリケーションのフォルダです。
  - Node-server : Node.js, mongoDB, expressを使ったバックエンドAPIのフォルダです。
- - etc...
+ - Face-flag : 
+ - pymongoForRaspberryPi :
 
 
 

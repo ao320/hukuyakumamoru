@@ -136,5 +136,5 @@ const TimeSettingSchema = new mongoose.Schema({
     }
 })
 
-const TimeSettingModel = mongoose.model("TimeSettingModel", TimeSettingSchema)
+const TimeSettingModel = mongoose.model("settingtime", TimeSettingSchema)
 export default TimeSettingModel

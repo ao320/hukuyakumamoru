@@ -9,5 +9,5 @@ const ManageMonthSchema = new mongoose.Schema({
     }
 })
 
-const ManageMonthModel = mongoose.model("ManageMonthModel", ManageMonthSchema)
+const ManageMonthModel = mongoose.model("completednumber", ManageMonthSchema)
 export default ManageMonthModel

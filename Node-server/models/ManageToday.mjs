@@ -23,5 +23,5 @@ const ManageTodaySchema = new mongoose.Schema({
     }
 })
 
-const ManageTodayModel = mongoose.model("ManageTodayModel", ManageTodaySchema)
+const ManageTodayModel = mongoose.model("istakemedicine", ManageTodaySchema)
 export default ManageTodayModel
