@@ -15,7 +15,7 @@
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/stack": "^6.3.17",
     "@realm/react": "^0.6.0",
-    "expo": "^49.0.8",
+    "expo": "^49.0.10",
     "expo-font": "~11.4.0",
     "expo-linking": "~5.0.2",
     "expo-splash-screen": "~0.20.5",

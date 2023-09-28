@@ -56,6 +56,16 @@ export default function MedicationStatusTabScreen(){
             "night" : false,
         },
     })
+    const getData = async () => {
+        const res = await fetch("http://160.16.222.38/medicationStatus")
+        const jsonData = await res.json()
+        return jsonData[0]
+    }
+    getData().then((e) => {
+        setInfomation(e)
+    }).catch((err) => {
+        console.log(err)
+    })
     return(
         <SafeAreaView>
             <ScrollView>

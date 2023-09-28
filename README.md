@@ -7,7 +7,7 @@
 ## ディレクトリ構成
 
  - Expo-app : React Native, Expoを使ったネイティブアプリケーションのフォルダです。
- - Node-server : Node.jsを使ったバックエンドAPIのフォルダです。
+ - Node-server : Node.js, mongoDB, expressを使ったバックエンドAPIのフォルダです。
  - etc...
 
 
