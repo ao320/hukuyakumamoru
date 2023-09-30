@@ -22,4 +22,13 @@ router.post("/", async (req, res) => {
     }
 })
 
+router.patch("/:id", async (req, res) => {
+    try {
+        await TimeSettingModel.findByIdAndUpdate(req.params.id, req.body)
+        await TimeSettingModel.save()
+    } catch(err) {
+        res.status(500).send(err)
+    }
+})
+
 export default router

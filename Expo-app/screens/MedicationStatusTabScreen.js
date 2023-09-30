@@ -57,7 +57,7 @@ export default function MedicationStatusTabScreen(){
         },
     })
     const getData = async () => {
-        const res = await fetch("http://160.16.222.38/medicationStatus")
+        const res = await fetch("https://hukuyakumamoru.com/medicationStatus")
         const jsonData = await res.json()
         return jsonData[0]
     }

@@ -13,13 +13,13 @@ const BottomTab = createBottomTabNavigator()
 export default function BottomTabNavigator() {
     return(
         <BottomTab.Navigator 
-            initialRouteName="TimeSettingTab"
+            initialRouteName="時間設定"
             screenOptions={{ 
                 tabBarActiveTintColor: "black",
             }}
         >
             <BottomTab.Screen
-                name="TimeSettingTab"
+                name="時間設定"
                 component={TimeSettingTabNavigator}
                 options={{
                     headerShown: false,
@@ -29,7 +29,7 @@ export default function BottomTabNavigator() {
                 }}
             />
             <BottomTab.Screen
-                name="ManageTab"
+                name="管理"
                 component={ManageTabNavigator}
                 options={{
                     tabBarIcon: ({ color }) => (
@@ -38,7 +38,7 @@ export default function BottomTabNavigator() {
                 }}
             />
             <BottomTab.Screen
-                name="MedicationStatusTab"
+                name="薬状況"
                 component={MedicationStatusTabNavigation}
                 options={{
                     headerShown: false,

@@ -10,17 +10,17 @@ export default function TimeSettingTabNavigator() {
             <TimeSettingTabStack.Screen
                 name="WeekSettingScreen"
                 component={WeekSettingScreen}
-                options={{ headerTitle: "Week Setting Title" }}
+                options={{ headerTitle: "時間設定" }}
             />
             <TimeSettingTabStack.Screen
                 name="DaySettingScreen"
                 component={DaySettingScreen}
-                options={{ headerTitle: "Day Setting Title" }}
+                options={{ headerTitle: "時間設定" }}
             />
             <TimeSettingTabStack.Screen
                 name="TimeSettingScreen"
                 component={TimeSettingScreen}
-                options={{ headerTitle: "Time Setting Title" }}
+                options={{ headerTitle: "時間設定" }}
             />
         </TimeSettingTabStack.Navigator>
     );

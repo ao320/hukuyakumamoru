@@ -1,12 +1,12 @@
 import { View, ScrollView, SafeAreaView, Text, TouchableOpacity, StyleSheet, Button } from "react-native"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import WeekSetting from "../../components/WeekSetting"
 
 export default function WeekSettingScreen({ navigation }){
     const [infomation, setInfomation] = useState({
         "sunday" : {
-        "day": "日",
+            "day": "日",
             "morning" : {
                 "name" : "朝",
                 "time" : "08:00",
@@ -141,7 +141,7 @@ export default function WeekSettingScreen({ navigation }){
     })
 
     const getData = async () => {
-        const res = await fetch("http://160.16.222.38/timeSetting")
+        const res = await fetch("https://hukuyakumamoru.com/timeSetting")
         const jsonData = await res.json()
         return jsonData[0]
     }
@@ -150,16 +150,17 @@ export default function WeekSettingScreen({ navigation }){
     }).catch((err) => {
         console.log(err)
     })
+
     return(
         <SafeAreaView>
             <ScrollView>
-                <WeekSetting props={infomation.sunday} onPress={() => navigation.navigate("DaySettingScreen", infomation.sunday)}/>
-                <WeekSetting props={infomation.monday} onPress={() => navigation.navigate("DaySettingScreen", infomation.monday)}/>
-                <WeekSetting props={infomation.tuesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.tuesday)}/>
-                <WeekSetting props={infomation.wednesday} onPress={() => navigation.navigate("DaySettingScreen", infomation.wednesday)}/>
-                <WeekSetting props={infomation.thursday} onPress={() => navigation.navigate("DaySettingScreen", infomation.thursday)}/>
-                <WeekSetting props={infomation.friday} onPress={() => navigation.navigate("DaySettingScreen", infomation.friday)}/>
-                <WeekSetting props={infomation.saturday} onPress={() => navigation.navigate("DaySettingScreen", infomation.saturday)}/>
+                <WeekSetting props={infomation.sunday} onPress={() => navigation.navigate("DaySettingScreen", "sunday")}/>
+                <WeekSetting props={infomation.monday} onPress={() => navigation.navigate("DaySettingScreen", "monday")}/>
+                <WeekSetting props={infomation.tuesday} onPress={() => navigation.navigate("DaySettingScreen", "tuesday")}/>
+                <WeekSetting props={infomation.wednesday} onPress={() => navigation.navigate("DaySettingScreen", "wednesday")}/>
+                <WeekSetting props={infomation.thursday} onPress={() => navigation.navigate("DaySettingScreen", "thursday")}/>
+                <WeekSetting props={infomation.friday} onPress={() => navigation.navigate("DaySettingScreen", "friday")}/>
+                <WeekSetting props={infomation.saturday} onPress={() => navigation.navigate("DaySettingScreen", "saturday")}/>
             </ScrollView>
         </SafeAreaView>
 

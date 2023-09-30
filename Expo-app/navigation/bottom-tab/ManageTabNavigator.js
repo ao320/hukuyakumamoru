@@ -13,12 +13,12 @@ export default function ManageTabNavigator() {
             }}
         >
             <TopTab.Screen
-                name="Today"
+                name="今日"
                 component={ManageTodayScreen}
                 options={{ headerTitle: "Top Tab One Title" }}
             />
             <TopTab.Screen
-                name="Month"
+                name="月"
                 component={ManageMonthScreen}
                 options={{ headerTitle: "Top Tab Two Title" }}
             />

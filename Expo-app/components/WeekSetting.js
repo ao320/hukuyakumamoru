@@ -18,7 +18,7 @@ export default function WeekSetting({props,onPress}) {
                 </View>
                 <View style={style.icon}>
                     <AntDesign name="right" size={24} color="black" />
-                </View> 
+                </View>
             </View>
         </TouchableOpacity>
     )

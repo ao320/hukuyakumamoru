@@ -9,7 +9,7 @@ export default function MedicationStatusTabNavigator() {
             <MedicationStatusTabStack.Screen
                 name="MedicationStatusTabScreen"
                 component={MedicationStatusTabScreen}
-                options={{ headerTitle: "Medication Status Tab Title" }}
+                options={{ headerTitle: "薬状況" }}
             />
         </MedicationStatusTabStack.Navigator>
     );

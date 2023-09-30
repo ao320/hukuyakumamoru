@@ -105,7 +105,7 @@ export default function App() {
       //SafeAreaProviderでインターフェース画面（電池残量など）に重ならないようにする
       <SafeAreaProvider>
         <Navigation />
-        <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+        {/* <View style={{ alignItems: 'center', justifyContent: 'center' }}>
         <Text>Title: {notification && notification.request.content.title} </Text>
         <Text>Body: {notification && notification.request.content.body}</Text>
         <Text>Data: {notification && JSON.stringify(notification.request.content.data)}</Text>
@@ -115,7 +115,7 @@ export default function App() {
         onPress={async () => {
           await sendPushNotification(expoPushToken);
         }}
-      />
+      /> */}
         <StatusBar />
       </SafeAreaProvider>
     );

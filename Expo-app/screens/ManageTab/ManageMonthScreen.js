@@ -34,7 +34,7 @@ export default function ManageMonthScreen(){
         "completedNumber" : 1
     }])
     const getData = async () => {
-        const res = await fetch("http://160.16.222.38/manage/month")
+        const res = await fetch("https://hukuyakumamoru.com/manage/month")
         const jsonData = await res.json()
         return jsonData
     }

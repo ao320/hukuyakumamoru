@@ -26,7 +26,7 @@ export default function ManageTodayScreen(){
         }
     })
     const getData = async () => {
-        const res = await fetch("http://160.16.222.38/manage/today")
+        const res = await fetch("https://hukuyakumamoru.com/manage/today")
         const jsonData = await res.json()
         return jsonData[0]
     }
