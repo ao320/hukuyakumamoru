@@ -1,5 +1,8 @@
 {
   "expo": {
+    "plugins": [
+      "expo-notifications"
+    ],
     "scheme": "myapp",
     "name": "ver1",
     "slug": "ver1",
@@ -16,13 +19,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "useNextNotificationsApi": true
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.hukuyakumamorukun.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "useNextNotificationsApi": true
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -53,7 +53,7 @@ export default function MedicationStatusTabScreen(){
             "morning" : true,
             "afternoon" : true,
             "evening" : true,
-            "night" : false,
+            "night" : true,
         },
     })
     const getData = async () => {
