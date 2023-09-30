@@ -2,7 +2,7 @@
 from pymongo import MongoClient
 
 # db接続
-client = MongoClient('mongodb://160.16.222.38:27017')
+client = MongoClient('mongodb://160.16.222.38:22238')
 
 db = client.hukuyakumamorukun
 collection = db.settingtimes

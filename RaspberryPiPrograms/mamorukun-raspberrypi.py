@@ -3,7 +3,7 @@ import datetime
 import locale
 
 # db接続
-client = MongoClient('mongodb://160.16.222.38:27017')
+client = MongoClient('mongodb://160.16.222.38:22238')
 db = client.hukuyakumamorukun
 
 # collection取得
@@ -20,20 +20,20 @@ jp_day = datetime.datetime.now().strftime("%a").lower()
 d_today =  str(datetime.date.today())
 
 # settingtimes
-#settingtimes = set_time.find_one()[en_day]
-#print(settingtimes)
+settingtimes = set_time.find_one()[en_day]
+print(settingtimes)
 
 # isputmedicines
-#isputmedicines = put_med.find_one()[en_day]
-#put_med.update_one({en_day+".day": jp_day}, {"$set": {en_day+".morning": False}})
-#print(isputmedicines)
+isputmedicines = put_med.find_one()[en_day]
+put_med.update_one({en_day+".day": jp_day}, {"$set": {en_day+".morning": False}})
+print(isputmedicines)
 
 # completednumbers
-#completednumbers = cmp_num.find_one({"data": d_today})
-#if completednumbers == None:
-#    cmp_num.insert_one({"data": d_today, "completedNumber": 0})
-#completednumbers = cmp_num.find_one({"data": d_today})
-#print(completednumbers)
+completednumbers = cmp_num.find_one({"data": d_today})
+if completednumbers == None:
+    cmp_num.insert_one({"data": d_today, "completedNumber": 0})
+completednumbers = cmp_num.find_one({"data": d_today})
+print(completednumbers)
 
 # istakemedicines
 istakemedicines = tak_med.find_one()
