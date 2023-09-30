@@ -1,3 +1,5 @@
+# cronにて毎分実行
+
 from pymongo import MongoClient
 import RPi.GPIO as GPIO
 import datetime
