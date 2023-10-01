@@ -67,3 +67,5 @@ GPIO.add_event_callback(PIN, take_medicine)
 
 while 1:
     sleep.sleep(0.1)
+
+#comment program
