@@ -27,7 +27,7 @@ en_day = datetime.datetime.now().strftime("%A").lower()
 locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
 jp_day = datetime.datetime.now().strftime("%a").lower()
 
-# 今の時間+1取得
+# 今の時間を取得
 now = datetime.datetime.now().time()
 
 # settingtimes
