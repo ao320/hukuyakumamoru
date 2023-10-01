@@ -3,6 +3,8 @@ import locale
 import RPi.GPIO as GPIO
 from pymongo import MongoClient
 import time as sleep
+import cv2
+import mediapipe as mp
 import urllib.request, json
 
 def take_medicine():
@@ -43,6 +45,8 @@ def take_medicine():
     request = urllib.request.Request(url, data=json_data, method=method, headers=headers)
     with urllib.request.urlopen(request) as response:
         response_body = response.read().decode("utf-8")
+    
+    import CameraAI
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
@@ -67,5 +71,3 @@ GPIO.add_event_callback(PIN, take_medicine)
 
 while 1:
     sleep.sleep(0.1)
-
-#comment program
