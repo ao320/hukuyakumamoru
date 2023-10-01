@@ -25,7 +25,7 @@ def search(dictionary):
             print(data)
     else:
         print("plz dictionary type")
-
+    
 # データ(value)更新
 def update(befor, after):
     collection.update_one(befor, {"$set":after})

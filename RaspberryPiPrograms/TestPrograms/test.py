@@ -8,7 +8,6 @@ db = client.hukuyakumamorukun
 collection = db.settingtimes
 print("completed connection")
 
-
 settingtime = collection.find_one()
 #print(settingtime[0])
 print(settingtime["sunday"]["morning"])

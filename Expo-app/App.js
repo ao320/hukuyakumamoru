@@ -73,27 +73,27 @@ async function registerForPushNotificationsAsync() {
 }
 
 export default function App() {
-  const [expoPushToken, setExpoPushToken] = useState('');
-  const [notification, setNotification] = useState(false);
-  const notificationListener = useRef();
-  const responseListener = useRef();
+  // const [expoPushToken, setExpoPushToken] = useState('');
+  // const [notification, setNotification] = useState(false);
+  // const notificationListener = useRef();
+  // const responseListener = useRef();
 
-  useEffect(() => {
-    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
-    console.log("onetime")
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      console.log("notification")
-      setNotification(notification);
-    });
+  // useEffect(() => {
+  //   registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+  //   console.log("onetime")
+  //   notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+  //     console.log("notification")
+  //     setNotification(notification);
+  //   });
 
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log("qqq",response);
-    });
-    return () => {
-      Notifications.removeNotificationSubscription(notificationListener.current);
-      Notifications.removeNotificationSubscription(responseListener.current);
-    };
-  }, []);
+  //   responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+  //     console.log("qqq",response);
+  //   });
+  //   return () => {
+  //     Notifications.removeNotificationSubscription(notificationListener.current);
+  //     Notifications.removeNotificationSubscription(responseListener.current);
+  //   };
+  // }, []);
 
   const isLoadingComplete = useLoadedAssets();
   const colorScheme = useColorScheme()
