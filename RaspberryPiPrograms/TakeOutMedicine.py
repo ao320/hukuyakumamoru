@@ -62,7 +62,7 @@ jp_day = datetime.datetime.now().strftime("%a").lower()
 d_today =  str(datetime.date.today())
 
 PIN = 17
-# ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 

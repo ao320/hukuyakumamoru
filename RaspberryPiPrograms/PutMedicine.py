@@ -59,6 +59,7 @@ night = now
 
 buttons = [9, 11, 13, 15]
 
+GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
