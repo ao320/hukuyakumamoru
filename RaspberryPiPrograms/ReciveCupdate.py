@@ -34,9 +34,9 @@ times = [datetime.time(int(st["morning"]["time"][:2]), int(st["morning"]["time"]
 # 前回の服薬時刻
 if now >= times[3] or times[0] > now:
     time = 3 # 前回の服薬時刻は夜
-elif times[0] < now:
+elif times[1] > now:
     time = 0 # 前回の服薬時刻は朝
-elif times[1] < now:
+elif times[2] > now:
     time = 1 # 前回の服薬時刻は昼
 else:
     time = 2 # 前回の服薬時刻は夕
