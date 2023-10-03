@@ -63,12 +63,13 @@ d_today =  str(datetime.date.today())
 
 PIN = 17
 # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
-GPIO.setup(PIN, GPIO.IN)
-             
-# 立ち下がり（GPIO.FALLING）を検出する（プルアップなので通常時1／押下時0）
-GPIO.add_event_detect(PIN, GPIO.FALLING, bouncetime=10000)
-# イベント発生時のコールバック関数を登録
-GPIO.add_event_callback(PIN, take_medicine)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 while 1:
-    sleep.sleep(0.1)
+    while 1:
+        if GPIO.input(PIN):
+            break
+        sleep.sleep(0.5)
+
+    take_medicine()

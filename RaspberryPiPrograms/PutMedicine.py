@@ -57,19 +57,14 @@ afternoon = now
 evening = now
 night = now
 
-buttons = [[9, button_9_pressed],
-           [11, button_11_pressed],
-           [13, button_13_pressed],
-           [15, button_15_pressed],]
+buttons = [9, 11, 13, 15]
 
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
-    GPIO.setup(button[0], GPIO.IN)
-             
-    # 立ち下がり（GPIO.FALLING）を検出する（プルアップなので通常時1／押下時0）
-    GPIO.add_event_detect(button[0], GPIO.FALLING, bouncetime=100)
-    # イベント発生時のコールバック関数を登録
-    GPIO.add_event_callback(button[0], button[1])
+    GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 while 1:
-    sleep.sleep(0.1)
+    for i in range(len(buttons)):
+        if GPIO.input(buttons[i]):
+            eval("button_"+buttons[i]+"_pressed")()
+    sleep.sleep(0.5)

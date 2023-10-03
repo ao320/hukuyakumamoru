@@ -10,6 +10,7 @@ https://qiita.com/maoutokagura/items/9aef5e23167ce2bc1d10
 
 ESP32 to RaspberryPi BLE connection for Python  
 https://zenn.dev/yuta_enginner/articles/826f7bc384e2b7  
+https://deviceplus.jp/mc-general/control-device-with-python-vol2-04/#02  
 
 Ubuntu起動時に自動実行  
 https://qiita.com/MAI_onishi/items/74edc40a667dd2dc633e  
