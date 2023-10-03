@@ -132,7 +132,7 @@ else:
 
 timing = ["morning", "afternoon", "evening", "night"]
 
-tak_med.update_one({}, {"$set": {str(times[time])+".isImageComplete": True}})
+tak_med.update_one({}, {"$set": {str(timing[time])+".isImageComplete": True}})
 d_today =  str(datetime.date.today())
 
 if tak_med.find_one()[timing[time]]["isCupComplete"]:

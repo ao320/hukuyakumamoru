@@ -43,10 +43,10 @@ else:
 
 timing = ["morning", "afternoon", "evening", "night"]
 
-tak_med.update_one({}, {"$set": {times[time]+".isCupComplete": True}})
+tak_med.update_one({}, {"$set": {timing[time]+".isCupComplete": True}})
 d_today =  str(datetime.date.today())
 
-if tak_med.find_one()[times[time]]["isImageComplete"]:
+if tak_med.find_one()[timing[time]]["isImageComplete"]:
     completednumbers = cmp_num.find_one({"data": d_today})
     if completednumbers == None:
         cmp_num.insert_one({"data": d_today, "completedNumber": 0})
