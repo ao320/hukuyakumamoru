@@ -19,7 +19,6 @@ db = client.hukuyakumamorukun
 
 # collection取得
 set_time = db.settingtimes
-put_med = db.putmedicines
 
 # 曜日文字列取得
 locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
@@ -57,6 +56,3 @@ if times[time].hour == now.hour and times[time].minute == now.minute:
     GPIO.output(pin, 0)
 
 GPIO.cleanup()
-
-timing = ["morning", "afternoon", "evening", "night"]
-put_med.update_one({}, {"$set": {en_day+"."+timing[time]: False}})
