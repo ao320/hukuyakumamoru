@@ -59,6 +59,7 @@ night = now
 
 buttons = [9, 11, 13, 15]
 
+GPIO.setmode(GPIO.BCM)
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
     GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
