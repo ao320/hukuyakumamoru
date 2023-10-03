@@ -7,7 +7,6 @@ import locale
 import time as sleep
 
 # GPIOのPINを指定
-GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(1, GPIO.OUT) # 朝 1
 GPIO.setup(3, GPIO.OUT) # 昼 3
