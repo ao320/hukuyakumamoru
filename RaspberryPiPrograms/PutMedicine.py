@@ -5,25 +5,25 @@ import locale
 import time as sleep
 
 def button_9_pressed():
-    morning += 1
-    if morning > 6:
-        morning = 0
-    put_med.update_one({}, {"$set": {week[morning]+".morning": True}})
+    timing[0] += 1
+    if timing[0] > 6:
+        timing[0] = 0
+    put_med.update_one({}, {"$set": {week[timing[0]]+".morning": True}})
 def button_11_pressed():
-    afternoon += 1
-    if afternoon > 6:
-        afternoon = 0
-    put_med.update_one({}, {"$set": {week[afternoon]+".afternoon": True}})
+    timing[1] += 1
+    if timing[1] > 6:
+        timing[1] = 0
+    put_med.update_one({}, {"$set": {week[timing[1]]+".afternoon": True}})
 def button_13_pressed():
-    evening += 1
-    if evening > 6:
-        evening = 0
-    put_med.update_one({}, {"$set": {week[evening]+".evening": True}})
+    timing[2] += 1
+    if timing[2] > 6:
+        timing[2] = 0
+    put_med.update_one({}, {"$set": {week[timing[2]]+".evening": True}})
 def button_15_pressed():
-    night += 1
-    if night > 6:
-        night = 0
-    put_med.update_one({}, {"$set": {week[night]+".night": True}})
+    timing[3] += 1
+    if timing[3] > 6:
+        timing[3] = 0
+    put_med.update_one({}, {"$set": {week[timing[3]]+".night": True}})
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
@@ -35,30 +35,20 @@ put_med = db.isputmedicines
 # 曜日文字列取得
 week = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
-en_day = datetime.datetime.now().strftime("%A").lower()
+en_day = str(datetime.datetime.now().strftime("%A").lower())
 
-if en_day == "sunday":
-    now = 0
-elif en_day == "monday":
-    now = 1
-elif en_day == "tuesday":
-    now = 2
-elif en_day == "wednesday":
-    now = 3
-elif en_day == "thursday":
-    now = 4
-elif en_day == "friday":
-    now = 5
-elif en_day == "saturday":
-    now = 6
+week_dic = {"sunday": 0, "monday": 1, "tuesday": 2, "webnesday": 3, "thurseday": 4, "friday": 5, "saturday": 6}
 
-morning = now
-afternoon = now
-evening = now
-night = now
+timing = ["morning", "afternoon", "evening", "night"]
+for i in range(4):
+    now = week_dic[en_day]
+    for j in range(7):
+        if put_med.find_one()[week[now]][timing[i]] == False:
+            break
+        now += 1
+    timing[i] = now-1
 
 buttons = [9, 11, 13, 15]
-
 GPIO.setmode(GPIO.BCM)
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
