@@ -31,21 +31,32 @@ db = client.hukuyakumamorukun
 
 # collection取得
 put_med = db.isputmedicines
+set_time = db.settingtimes
 
 # 曜日文字列取得
-week = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
 en_day = str(datetime.datetime.now().strftime("%A").lower())
+now_time = datetime.datetime.now().time()
 
+week = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
 week_dic = {"sunday": 0, "monday": 1, "tuesday": 2, "webnesday": 3, "thurseday": 4, "friday": 5, "saturday": 6}
-
 timing = ["morning", "afternoon", "evening", "night"]
+st = set_time.find_one()[en_day]
+times = [datetime.time(int(st["morning"]["time"][:2]), int(st["morning"]["time"][4:5])), 
+         datetime.time(int(st["afternoon"]["time"][:2]), int(st["afternoon"]["time"][4:5])),
+         datetime.time(int(st["evening"]["time"][:2]), int(st["evening"]["time"][4:5])),
+         datetime.time(int(st["night"]["time"][:2]), int(st["night"]["time"][4:5]))]
+
 for i in range(4):
     now = week_dic[en_day]
+    if now_time > times[i]:
+        now += 1
     for j in range(7):
         if put_med.find_one()[week[now]][timing[i]] == False:
             break
         now += 1
+        if now > 6:
+            now = 0
     timing[i] = now-1
 
 buttons = [9, 11, 13, 15]
