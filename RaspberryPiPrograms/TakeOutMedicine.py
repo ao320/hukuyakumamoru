@@ -47,6 +47,7 @@ def take_medicine():
         response_body = response.read().decode("utf-8")
     
     import CameraAI
+    import ReciveCupdate
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
