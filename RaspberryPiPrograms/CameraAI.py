@@ -4,6 +4,7 @@ import time
 import locale
 import datetime
 from pymongo import MongoClient
+import urllib.request, json
 
 mp_hands = mp.solutions.hands
 mp_face_detection = mp.solutions.face_detection
@@ -143,3 +144,20 @@ if tak_med.find_one()[timing[time]]["isCupComplete"]:
 
     completedNumber = cmp_num.find_one({"data": d_today})["completedNumber"]
     cmp_num.update_one({"data": d_today}, {"$set": {"completedNumber": completedNumber+1}})
+
+    timing = ["朝", "昼", "夕方", "夜"]
+    url = "https://exp.host/--/api/v2/push/send"
+    method = "POST"
+    headers = {
+        'Accept-Encoding': 'gzip, deflate',
+        'Content-Type': 'application/json'
+    }
+    body = {
+        "to": "ExponentPushToken[DAKWF0POfgYLL13JHcYPfe]",
+        "title": "薬の服用確認",
+        "body": timing[time]+"の分の薬が服用されたことを確認しました",
+    }
+    json_data = json.dumps(body).encode("utf-8")
+    request = urllib.request.Request(url, data=json_data, method=method, headers=headers)
+    with urllib.request.urlopen(request) as response:
+        response_body = response.read().decode("utf-8")
