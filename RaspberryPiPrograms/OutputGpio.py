@@ -22,7 +22,7 @@ set_time = db.settingtimes
 put_med = db.putmedicines
 
 # 曜日文字列取得
-locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+#locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
 en_day = datetime.datetime.now().strftime("%A").lower()
 locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
 jp_day = datetime.datetime.now().strftime("%a").lower()

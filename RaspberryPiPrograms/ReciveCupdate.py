@@ -16,9 +16,9 @@ cmp_num = db.completednumbers
 set_time = db.settingtimes
 
 # 曜日文字列取得
-locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+#locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
 en_day = datetime.datetime.now().strftime("%A").lower()
-locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
+locale.setlocale(locale.LC_TIME, 'japanese_Japan.UTF-8')
 jp_day = datetime.datetime.now().strftime("%a").lower()
 
 # 今の時間を取得

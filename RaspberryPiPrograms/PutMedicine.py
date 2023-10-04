@@ -34,7 +34,7 @@ put_med = db.isputmedicines
 set_time = db.settingtimes
 
 # 曜日文字列取得
-locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+#locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
 en_day = str(datetime.datetime.now().strftime("%A").lower())
 now_time = datetime.datetime.now().time()
 
