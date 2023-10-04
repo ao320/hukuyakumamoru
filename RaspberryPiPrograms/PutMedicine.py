@@ -39,7 +39,7 @@ en_day = str(datetime.datetime.now().strftime("%A").lower())
 now_time = datetime.datetime.now().time()
 
 week = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
-week_dic = {"sunday": 0, "monday": 1, "tuesday": 2, "webnesday": 3, "thurseday": 4, "friday": 5, "saturday": 6}
+week_dic = {"sunday": 0, "monday": 1, "tuesday": 2, "wednesday": 3, "thurseday": 4, "friday": 5, "saturday": 6}
 timing = ["morning", "afternoon", "evening", "night"]
 st = set_time.find_one()[en_day]
 times = [datetime.time(int(st["morning"]["time"][:2]), int(st["morning"]["time"][4:5])), 
