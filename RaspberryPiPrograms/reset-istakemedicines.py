@@ -3,6 +3,9 @@
 from pymongo import MongoClient
 import datetime
 import locale
+import RPi.GPIO as GPIO
+
+GPIO.setwarningns(False)
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
