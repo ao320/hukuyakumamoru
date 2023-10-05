@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import RPi.GPIO as GPIO
 import datetime
 import locale
+import os
 import time as sleep
 
 def button_9_pressed():
@@ -33,6 +34,7 @@ db = client.hukuyakumamorukun
 put_med = db.isputmedicines
 set_time = db.settingtimes
 
+
 # 曜日文字列取得
 #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
 en_day = str(datetime.datetime.now().strftime("%A").lower())
@@ -63,7 +65,11 @@ buttons = [9, 11, 13, 15]
 GPIO.setmode(GPIO.BCM)
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
-    GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    try: 
+        GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    except RuntimeWarning:
+        os.system("sudo systemctl daemon-reload")
+        os.system("sudo systemctl restart auto_shell.service")        
 
 while 1:
     for i in range(len(buttons)):

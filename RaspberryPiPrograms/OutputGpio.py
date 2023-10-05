@@ -8,10 +8,10 @@ import time as sleep
 
 # GPIOのPINを指定
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(1, GPIO.OUT) # 朝 1
-GPIO.setup(3, GPIO.OUT) # 昼 3
-GPIO.setup(5, GPIO.OUT) # 夕 5
-GPIO.setup(7, GPIO.OUT) # 夜 7
+GPIO.setup(1, GPIO.OUT, initial=GPIO.LOW) # 朝 1
+GPIO.setup(3, GPIO.OUT, initial=GPIO.LOW) # 昼 3
+GPIO.setup(5, GPIO.OUT, initial=GPIO.LOW) # 夕 5
+GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW) # 夜 7
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
