@@ -9,4 +9,5 @@
  - Expo-app : React Native, Expoを使ったネイティブアプリケーションのフォルダです。
  - Node-server : Node.js, mongoDB, expressを使ったバックエンドAPIのフォルダです。
  - Face-flag : 
- - pymongoForRaspberryPi :
+ - RaspberryPiPrograms :
+ - Esp32 :加速度センサーの値をBLEで送信するシステムのフォルダです。
