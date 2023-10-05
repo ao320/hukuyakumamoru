@@ -12,6 +12,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+
 app.use("/manage", Manage)
 app.use("/timeSetting", TimeSetting)
 app.use("/medicationStatus", MedicationStatus)
