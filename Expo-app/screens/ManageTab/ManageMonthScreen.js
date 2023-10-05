@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, Dimensions } from "react-native"
 import { Calendar } from "react-native-calendars"
 import { useState } from "react"
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from "react-native-responsive-screen"
 
 export default function ManageMonthScreen(){
@@ -83,6 +84,24 @@ export default function ManageMonthScreen(){
                 markingType={'custom'}
                 markedDates={createDates(infomation)}
             />
+            <View style={style.container}>
+                <View style={style.box}>
+                    <MaterialCommunityIcons name="circle" size={24} color="#FF6A00" />
+                    <Text>全て完了</Text>
+                </View>
+                <View style={style.box}>
+                    <MaterialCommunityIcons name="circle" size={24} color="#FF8A36" />
+                    <Text>三つ完了</Text>
+                </View>
+                <View style={style.box}>
+                    <MaterialCommunityIcons name="circle" size={24} color="#F69C5B" />
+                    <Text>二つ完了</Text>
+                </View>
+                <View style={style.box}>
+                    <MaterialCommunityIcons name="circle" size={24} color="#E0B89C" />
+                    <Text>一つ完了</Text>
+                </View>
+            </View>
         </View>
     )
 }
@@ -90,10 +109,13 @@ export default function ManageMonthScreen(){
 const style = StyleSheet.create({
     container: {
         width: wp("90%"),
-        height: 450,
+        height: 380,
         marginLeft: "auto",
         marginRight: "auto",
         marginTop: 20,
-        borderRadius: 15
+        borderRadius: 15,
+    },
+    box: {
+        flexDirection: "row"
     }
 })

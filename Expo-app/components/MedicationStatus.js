@@ -20,8 +20,8 @@ const style = StyleSheet.create({
         width : wp("15%"),
         height : wp("15%"),
         margin : 5,
-        borderColor: "gray",
-        borderWidth: 1
+        // borderColor: "gray",
+        // borderWidth: 1
     },
     boxFalse: {
         backgroundColor : "white",
