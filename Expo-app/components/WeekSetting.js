@@ -39,7 +39,6 @@ const fontSizeRate = () => {
 const style = StyleSheet.create({
     container: {
         width: wp("95%"),
-        // height: "auto",
         backgroundColor : "white",
         marginTop: 15,
         marginLeft: "auto",
@@ -64,7 +63,6 @@ const style = StyleSheet.create({
         marginLeft:10,
         flex: 1,
         alignItems: "center",
-        // backgroundColor: "blue",
     },
     dayText: {
         fontWeight: "600",

@@ -30,6 +30,7 @@ def take_medicine():
     
     timing = ["朝", "昼", "夕方", "夜"]
 
+    # アプリの通知
     url = "https://exp.host/--/api/v2/push/send"
     method = "POST"
     headers = {

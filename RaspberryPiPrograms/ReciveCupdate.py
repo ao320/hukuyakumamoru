@@ -10,8 +10,8 @@ ESP32_UUIDs = ["34:85:18:9D:72:59"]
 #ESP32_UUIDs = ["C0:49:EF:67:FD:DA"]
 
 # Nordic UART Service (NUS)
-#NUS_UUID = '6e400002-b5a3-f393-e0a9-e50e24dcca9e'
-#RX_UUID = '93222d1f-2837-4f1d-88d0-e30b6d1935e1'
+# NUS_UUID = '6e400002-b5a3-f393-e0a9-e50e24dcca9e'
+# RX_UUID = '93222d1f-2837-4f1d-88d0-e30b6d1935e1'
 global gyro
 global date
 gyro = ""
@@ -33,7 +33,7 @@ def notification_handler(sender: int, data: bytearray, **_kwargs):
 
 async def run():
 
-    # 1. 周囲のBLE発信をスキャン
+    # 周囲のBLE発信をスキャン
     scanner = BleakScanner()
     devices = await scanner.discover()
 
@@ -47,7 +47,7 @@ async def run():
 
     try:
         
-        # 2. クライアント（ESP32などのデバイス）とデータのやり取りをする
+        # ESP32とデータのやり取りをする
         for client in clients:
             await client.connect()
 
@@ -64,13 +64,9 @@ async def run():
         while True:
             if date[0] >= 45 or date[1] >= 45:
                 break
-            # 実際のアプリケーションではここで何らかの処理
             await asyncio.sleep(1.0)
     finally:
-        print(14)
-        # for client in clients:
-        #     await client.stop_notify(RX_UUID)
-        #     await client.disconnect()
+        print("finish")
 
 asyncio.run(run())
 
@@ -125,6 +121,8 @@ if tak_med.find_one()[timing[time]]["isImageComplete"]:
     cmp_num.update_one({"data": d_today}, {"$set": {"completedNumber": completedNumber+1}})
 
     timing = ["朝", "昼", "夕", "夜"]
+
+    # アプリの通知
     url = "https://exp.host/--/api/v2/push/send"
     method = "POST"
     headers = {

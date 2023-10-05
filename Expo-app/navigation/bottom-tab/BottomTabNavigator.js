@@ -2,8 +2,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import Colors from "../../constants/Colors";
-
 import TimeSettingTabNavigator from "./TimeSettingTabNavigator";
 import ManageTabNavigator from "./ManageTabNavigator";
 import MedicationStatusTabNavigation from "./MedicationStatusTabNavigation";

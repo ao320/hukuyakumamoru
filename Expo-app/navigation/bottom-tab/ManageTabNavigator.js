@@ -4,7 +4,6 @@ import ManageMonthScreen from "../../screens/ManageTab/ManageMonthScreen";
 
 const TopTab = createMaterialTopTabNavigator()
 
-
 export default function ManageTabNavigator() {
     return (
         <TopTab.Navigator 
