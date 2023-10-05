@@ -63,7 +63,7 @@ d_today =  str(datetime.date.today())
 
 PIN = 17
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN, initial=GPIO.LOW)
 
 while 1:
     while 1:
