@@ -5,22 +5,22 @@ import locale
 import os
 import time as sleep
 
-def button_9_pressed():
+def button_18_pressed():
     timing[0] += 1
     if timing[0] > 6:
         timing[0] = 0
     put_med.update_one({}, {"$set": {week[timing[0]]+".morning": True}})
-def button_11_pressed():
+def button_23_pressed():
     timing[1] += 1
     if timing[1] > 6:
         timing[1] = 0
     put_med.update_one({}, {"$set": {week[timing[1]]+".afternoon": True}})
-def button_13_pressed():
+def button_24_pressed():
     timing[2] += 1
     if timing[2] > 6:
         timing[2] = 0
     put_med.update_one({}, {"$set": {week[timing[2]]+".evening": True}})
-def button_15_pressed():
+def button_25_pressed():
     timing[3] += 1
     if timing[3] > 6:
         timing[3] = 0
@@ -61,18 +61,24 @@ for i in range(4):
             now = 0
     timing[i] = now-1
 
-buttons = [9, 11, 13, 15]
+buttons = [18, 23, 24, 25]
 GPIO.setmode(GPIO.BCM)
 for button in buttons:
     # ボタンがつながるGPIOピンの動作は「入力」「プルアップあり」
     try: 
+        print("setup"+str(button))
         GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
     except RuntimeWarning:
+        print("command")
         os.system("sudo systemctl daemon-reload")
         os.system("sudo systemctl restart auto_shell.service")        
 
 while 1:
     for i in range(len(buttons)):
+        #print(str(buttons[i])+": "+str(GPIO.input(buttons[i])))
         if GPIO.input(buttons[i]):
-            eval("button_"+buttons[i]+"_pressed")()
-    sleep.sleep(0.5)
+            print("putmedicines: "+str(buttons[i]))
+            print(timing[i])
+            eval("button_"+str(buttons[i])+"_pressed")()
+            sleep.sleep(1.1)
+    sleep.sleep(0.1)

@@ -1,6 +1,8 @@
 ### 毎日0時に実行してflagをリセットする用
 
 from pymongo import MongoClient
+import RPi.GPIO as GPIO
+
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')

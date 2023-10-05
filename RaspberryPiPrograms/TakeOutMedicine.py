@@ -61,13 +61,14 @@ locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
 jp_day = datetime.datetime.now().strftime("%a").lower()
 d_today =  str(datetime.date.today())
 
-PIN = 17
+PIN = 12
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN, initial=GPIO.LOW)
+GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 while 1:
     while 1:
         if GPIO.input(PIN):
+            print("takeoutmedicines: "+str(PIN))
             break
         sleep.sleep(0.5)
 

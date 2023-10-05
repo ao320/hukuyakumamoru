@@ -7,11 +7,12 @@ import locale
 import time as sleep
 
 # GPIOのPINを指定
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(1, GPIO.OUT, initial=GPIO.LOW) # 朝 1
-GPIO.setup(3, GPIO.OUT, initial=GPIO.LOW) # 昼 3
-GPIO.setup(5, GPIO.OUT, initial=GPIO.LOW) # 夕 5
-GPIO.setup(7, GPIO.OUT, initial=GPIO.LOW) # 夜 7
+GPIO.setup(17, GPIO.OUT, initial=GPIO.LOW) # 朝 17
+GPIO.setup(27, GPIO.OUT, initial=GPIO.LOW) # 昼 27
+GPIO.setup(22, GPIO.OUT, initial=GPIO.LOW) # 夕 22
+GPIO.setup(10, GPIO.OUT, initial=GPIO.LOW) # 夜 10
 
 # db接続
 client = MongoClient('mongodb://160.16.222.38:22238')
@@ -29,29 +30,34 @@ jp_day = datetime.datetime.now().strftime("%a").lower()
 
 # 今の時間を取得
 now = datetime.datetime.now().time()
+print(now)
 
 # settingtimes
 st = set_time.find_one()[en_day]
-times = [datetime.time(int(st["morning"]["time"][:2]), int(st["morning"]["time"][4:5])), 
-         datetime.time(int(st["afternoon"]["time"][:2]), int(st["afternoon"]["time"][4:5])),
-         datetime.time(int(st["evening"]["time"][:2]), int(st["evening"]["time"][4:5])),
-         datetime.time(int(st["night"]["time"][:2]), int(st["night"]["time"][4:5]))]
+times = [datetime.time(int(st["morning"]["time"][:2]), int(st["morning"]["time"][3:5]), 59), 
+         datetime.time(int(st["afternoon"]["time"][:2]), int(st["afternoon"]["time"][3:5]), 59),
+         datetime.time(int(st["evening"]["time"][:2]), int(st["evening"]["time"][3:5]), 59),
+         datetime.time(int(st["night"]["time"][:2]), int(st["night"]["time"][3:5]), 59)]
+print(times[3])
 
 # 次の服薬予定確認
 if now <= times[0] or times[3] < now:
     time = 0 # つぎの服薬予定は朝
-    pin = 1
-elif times[0] < now:
+    pin = 17
+elif times[1] > now:
     time = 1 # つぎの服薬予定は昼
-    pin = 3
-elif times[1] < now:
+    pin = 27
+elif times[2] > now:
     time = 2 # つぎの服薬予定は夕
-    pin = 5
+    pin = 22
 else:
     time = 3 # つぎの服薬予定は夜
-    pin = 7
+    pin = 10
 
-if times[time].hour == now.hour and times[time].minute == now.minute:
+print("output: "+str(now.hour)+":"+str(now.minute))
+print("output: "+str(times[time].hour)+":"+str(times[time].minute))
+if int(times[time].hour) == int(now.hour) and int(times[time].minute) == int(now.minute):
+    print("output")
     GPIO.output(pin, 1)
     sleep.sleep(2)
     GPIO.output(pin, 0)
