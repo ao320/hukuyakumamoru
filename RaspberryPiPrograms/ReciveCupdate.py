@@ -62,7 +62,7 @@ async def run():
             
         global date
         while True:
-            if date[0] >= 45 or date[1] >= 45:
+            if date[0] >= 30 or date[1] >= 30:
                 break
             await asyncio.sleep(1.0)
     finally:
