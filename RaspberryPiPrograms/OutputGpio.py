@@ -5,6 +5,7 @@ import RPi.GPIO as GPIO
 import datetime
 import locale
 import time as sleep
+import urllib.request, json
 
 # GPIOのPINを指定
 GPIO.setwarnings(False)
@@ -63,5 +64,22 @@ if int(times[time].hour) == int(now.hour) and int(times[time].minute) == int(now
     GPIO.output(pin, 0)
     timing = ["morning", "afternoon", "evening", "night"]
     put_med.update_one({}, {"$set": {en_day+"."+timing[time]: False}})
+
+    timing = ["朝", "昼", "夕方", "夜"]
+    url = "https://exp.host/--/api/v2/push/send"
+    method = "POST"
+    headers = {
+        'Accept-Encoding': 'gzip, deflate',
+        'Content-Type': 'application/json'
+    }
+    body = {
+        "to": "ExponentPushToken[MB3lwBKaGyGLkKjR3NdIDb]",
+        "title": "薬の排出",
+        "body": timing[time]+"の分の薬を排出しました",
+    }
+    json_data = json.dumps(body).encode("utf-8")
+    request = urllib.request.Request(url, data=json_data, method=method, headers=headers)
+    with urllib.request.urlopen(request) as response:
+        response_body = response.read().decode("utf-8")
 
 GPIO.cleanup()

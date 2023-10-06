@@ -38,7 +38,7 @@ def take_medicine():
         'Content-Type': 'application/json'
     }
     body = {
-        "to": "ExponentPushToken[DAKWF0POfgYLL13JHcYPfe]",
+        "to": "ExponentPushToken[MB3lwBKaGyGLkKjR3NdIDb]",
         "title": "薬の取り出し確認",
         "body": timing[time]+"の分として排出した薬が取り出されました",
     }

@@ -130,7 +130,7 @@ if tak_med.find_one()[timing[time]]["isImageComplete"]:
         'Content-Type': 'application/json'
     }
     body = {
-        "to": "ExponentPushToken[DAKWF0POfgYLL13JHcYPfe]",
+        "to": "ExponentPushToken[MB3lwBKaGyGLkKjR3NdIDb]",
         "title": "薬の服用確認",
         "body": timing[time]+"の分の薬が服用されたことを確認しました",
     }
