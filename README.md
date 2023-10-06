@@ -7,7 +7,7 @@
 服薬守くんは服薬予約や服薬通知に用いるスマートフォン、指定時間に薬を提供しカメラによって服用したかを確認するお薬ターミナル、自身の傾きから服用したかを確認するコップ型デバイスによって構成されています。服薬予約や服薬したかの記録はデータベースによって管理されます。
 
 ## ディレクトリ構成
- - [Arduino]() : Arduinioでお薬ターミナルの薬の排出や投入の制御を行うシステムのフォルダです。
+ - [Arduino](https://github.com/ao320/hukuyakumamoru/tree/main/Arduino) : Arduinioでお薬ターミナルの薬の排出や投入の制御を行うシステムのフォルダです。
  - [Esp32](https://github.com/ao320/hukuyakumamoru/tree/main/Esp32) : ESP32を用いて加速度センサーの値をBLEで送信するシステムのフォルダです。
  - [Expo-app](https://github.com/ao320/hukuyakumamoru/tree/main/Expo-app) : React Native, Expoを使ったネイティブアプリケーションのフォルダです。
  - [Node-server](https://github.com/ao320/hukuyakumamoru/tree/main/Node-server) : Node.js, mongoDB, expressを使ったバックエンドAPIのフォルダです。
