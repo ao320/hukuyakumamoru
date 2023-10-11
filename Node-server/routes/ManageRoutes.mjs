@@ -23,6 +23,15 @@ router.post("/month", async (req, res) => {
     }
 })
 
+router.patch("/month/:id", async (req, res) => {
+    try {
+        await ManageMonthModel.findByIdAndUpdate(req.params.id, req.body)
+        await ManageMonthModel.save()
+    } catch(err) {
+        res.status(500).send(err)
+    }
+})
+
 router.get("/today", async (req, res) => {
     const ManageTodays = await ManageTodayModel.find({})
     try {
@@ -37,6 +46,15 @@ router.post("/today", async (req, res) => {
     try {
         await ManageToday.save()
         res.send(ManageToday)
+    } catch(err) {
+        res.status(500).send(err)
+    }
+})
+
+router.patch("/today/:id", async (req, res) => {
+    try {
+        await ManageTodayModel.findByIdAndUpdate(req.params.id, req.body)
+        await ManageTodayModel.save()
     } catch(err) {
         res.status(500).send(err)
     }

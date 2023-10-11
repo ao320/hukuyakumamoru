@@ -22,4 +22,13 @@ router.post("/", async (req, res) => {
     }
 })
 
+router.patch("/:id", async (req, res) => {
+    try {
+        await MedicationStatusModel.findByIdAndUpdate(req.params.id, req.body)
+        await MedicationStatusModel.save()
+    } catch(err) {
+        res.status(500).send(err)
+    }
+})
+
 export default router
