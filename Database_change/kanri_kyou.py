@@ -9,18 +9,18 @@ if __name__ == "__main__":
     body =     {
         "morning": {
             "name": "朝",
-            "isImageComplete": False,
-            "isCupComplete": False
+            "isImageComplete": True,
+            "isCupComplete": True
         },
         "afternoon": {
             "name": "昼",
-            "isImageComplete": False,
+            "isImageComplete": True,
             "isCupComplete": False
         },
         "evening": {
             "name": "夕",
             "isImageComplete": False,
-            "isCupComplete": False
+            "isCupComplete": True
         },
         "night": {
             "name": "夜",
