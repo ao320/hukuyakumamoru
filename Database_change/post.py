@@ -6,7 +6,7 @@ headers = {
     'Content-Type': 'application/json'
 }
 body = {
-    "to": "ExponentPushToken[yoSEpYCM4BXVay1Dlnu4HK]",
+    "to": "ExponentPushToken[MB3lwBKaGyGLkKjR3NdIDb]",
     "title": "薬の取り出し確認",
     "body": "の分として排出した薬が取り出されました",
 }

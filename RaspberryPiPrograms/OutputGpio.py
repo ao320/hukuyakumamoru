@@ -26,7 +26,7 @@ def main():
     put_med = db.putmedicines
 
     # 曜日文字列取得
-    #locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+    locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
     en_day = datetime.datetime.now().strftime("%A").lower()
     locale.setlocale(locale.LC_TIME, 'ja_JP.UTF-8')
     jp_day = datetime.datetime.now().strftime("%a").lower()
@@ -76,6 +76,7 @@ def main():
         }
         body = {
             "to": "ExponentPushToken[yoSEpYCM4BXVay1Dlnu4HK]",
+            # "to": "ExponentPushToken[MB3lwBKaGyGLkKjR3NdIDb]",
             "title": "薬の排出",
             "body": timing[time]+"の分の薬を排出しました",
         }
@@ -89,4 +90,4 @@ def main():
 schedule.every(1).minutes.do(main)
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    sleep.sleep(1)
