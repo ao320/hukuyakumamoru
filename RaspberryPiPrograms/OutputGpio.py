@@ -6,6 +6,7 @@ import datetime
 import locale
 import time as sleep
 import urllib.request, json
+import schedule
 
 def main():
     # GPIOのPINを指定
@@ -85,4 +86,7 @@ def main():
 
         GPIO.cleanup()
 
-main()
+schedule.every(1).minutes.do(main)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
